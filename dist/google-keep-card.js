@@ -131,7 +131,7 @@ class GoogleKeepCard extends LitElement {
               div.divider {
                 height: 1px;
                 background-color: rgba(0, 0, 0, .12);
-                margin: 10px;
+                margin: 10px 0 10px 0;
               }
             </style>
             ${title}
