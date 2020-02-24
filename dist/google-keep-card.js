@@ -109,18 +109,14 @@ class GoogleKeepCard extends LitElement {
                 pointer-events: none;
                 --paper-checkbox-label-color: ${this.getTextColor()};
                 --paper-checkbox-unchecked-color: ${this.getTextColor()};
-                --paper-checkbox-checkmark-color: ${this.getCheckedColor()};
                 --paper-checkbox-label-checked-color: ${this.getCheckedColor()};
               }
               div.noteBackground {
-                padding:10px;
                 border-radius:5px;
-                margin:5px;
               }
               p.noteTitle {
-                font-weight: bold;
                 margin: 0 0 10px 10px;
-                font-size: 120%;
+                font-size: 24px;
                 color: ${this.getTextColor()};
               }
               p.noteBody {
@@ -132,6 +128,9 @@ class GoogleKeepCard extends LitElement {
               hr {
                 margin: 10px 0;
                 border: 1px solid ${this.getTextColor()};
+              }
+              p.checked-text {
+                  margin: 0;
               }
             </style>
             ${title}
@@ -163,7 +162,7 @@ class GoogleKeepCard extends LitElement {
 <div class="noteBackground" style="background:${this.getColor(note['color'])};">
     <p class="noteTitle">${note['title']}</p>
     ${showUnchecked ? this.renderUncheckedList(note) : html``}
-    ${showUnchecked && showChecked ? html`<hr>` : html``}
+    ${showUnchecked && showChecked ? html`<div class="divider"></div>` : html``}
     ${showChecked ? this.renderCheckedList(note) : html``}
 </div>`
     }
@@ -191,7 +190,7 @@ class GoogleKeepCard extends LitElement {
             let prefix = '\xa0'.repeat((line.length - trimmedLength) * 2);
             let suffix = trimmed.substr(1);
             if (strikethrough) {
-                suffix = html`<s>${suffix}</s>`
+                suffix = html`<p class="checked-text">${suffix}</p>`
             }
             if (trimmed[0] === '\u2610') {
                 trimmed = html`${prefix}<paper-checkbox>${suffix}</paper-checkbox>`;
