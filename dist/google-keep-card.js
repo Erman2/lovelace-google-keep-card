@@ -115,7 +115,7 @@ class GoogleKeepCard extends LitElement {
                 border-radius:5px;
               }
               p.noteTitle {
-                margin: 0 0 10px 10px;
+                margin: 10px 0 16px 0;
                 font-size: 24px;
                 color: ${this.getTextColor()};
               }
@@ -125,12 +125,13 @@ class GoogleKeepCard extends LitElement {
               div.noteLine {
                 margin: 3px;
               }
-              hr {
-                margin: 10px 0;
-                border: 1px solid ${this.getTextColor()};
-              }
               p.checked-text {
                   margin: 0;
+              }
+              div.divider {
+                height: 1px;
+                background-color: rgba(0, 0, 0, .12);
+                margin: 10px;
               }
             </style>
             ${title}
